@@ -1,2 +1,2 @@
-console.log('hi')
-console.log('你好');
+import './x.js'
+console.log('hi');
