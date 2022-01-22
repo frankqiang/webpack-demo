@@ -14,7 +14,7 @@ button.innerText='懒加载'
 div.appendChild(button)
 button.onclick=()=>{
   const promise=import('./lazy.js')//使用import()函数读取文件会得到一个promise对象
-console.log(promise);
+console.log(promise);//promise对象的结果保存着文件中的代码
   promise.then((module)=>{
    const fn=module.default//导出来的默认值是一个函数
     fn();
