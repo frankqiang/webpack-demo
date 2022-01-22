@@ -5,13 +5,14 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const base=require('./webpack.config.base')
 module.exports = {
   mode: 'development',
-  ...base,
+  ... base,
   devtool:'inline-source-map',//使用dev-server
   devServer:{
       contentBase:'./dist',
     },
   module:{
     rules:[
+      ...base.module.rules,
       {
         test:/\.css$/i,
         use:['style-loader','css-loader'],

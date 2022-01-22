@@ -11,5 +11,37 @@ module.exports = {
     title:'TYQ',//HTML标题
     template:'src/assets/index.html',//文件路径
   })
-]
+],
+module:{
+  rules:[
+    {
+      test:/\.(png|svg|jpg|gif)$/,
+      use:['file-loader']//作用：把文件变为文件的路径
+    },
+    {
+      test:/\.styl$/,
+      loader:['style-loader','css-loader','stylus-loader']
+    },
+    {
+      test:/\.less$/,
+      loader:['style-loader','css-loader','less-loader']
+    },
+    {
+      test:/\.scss$/i,
+      use:[
+        //Create 'style' nodes from JS strings
+        'style-loader',
+        //Translate CSS into CommonJS
+        'css-loader',
+        //Compiles Sass to CSS
+          {
+            loader:"sass-loader",
+            options:{
+              implementation:require('dart-sass'),
+            },
+          },
+      ],
+    },
+  ],
+},
 };
